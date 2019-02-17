@@ -14,8 +14,25 @@ app.get('/predicion/:vila', (req, resp) => {
     + '&dia=-1&request_locale=gl', (err, res, body) => {
     if (err) { return console.log(err); }
     var doc = new dom().parseFromString(body);
-    var nodes = xpath.select("/rss/channel/item[1]/description", doc);
-    resp.send(nodes[0].firstChild.data);
+    var titulo = xpath.select("/rss/channel/item[1]/title", doc)[0].firstChild.data;
+    var select = xpath.useNamespaces({"Concellos": "Concellos"});
+    var data = select("/rss/channel/item[1]/Concellos:dataPredicion", doc)[0].firstChild.data;
+    var maxima = select("/rss/channel/item[1]/Concellos:tMax", doc)[0].firstChild.data;
+    var minima = select("/rss/channel/item[1]/Concellos:tMin", doc)[0].firstChild.data;
+    var ceoManha = select("/rss/channel/item[1]/Concellos:ceoM", doc)[0].firstChild.data;
+    var ceoTarde = select("/rss/channel/item[1]/Concellos:ceoT", doc)[0].firstChild.data;
+    var ceoNoite = select("/rss/channel/item[1]/Concellos:ceoN", doc)[0].firstChild.data;
+    var fonte = xpath.select("/rss/channel/item[1]/link", doc)[0].firstChild.data;
+    resp.send({
+      titulo: titulo,
+      data: data,
+      maxima: maxima,
+      minima: minima,
+      ceoManha: ceoManha,
+      ceoTarde: ceoTarde,
+      ceoNoite: ceoNoite,
+      fonte: fonte
+    });
   });
 });
 

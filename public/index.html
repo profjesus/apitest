@@ -2,14 +2,45 @@
 <html>
 <head>
   <meta charset="UTF-8">
-
-  <title>Ghibli App</title>
-  
-  <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
+  <title>Predición meteorolóxica</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+  <div class="container">
+    <form>
+      <div class="form-group">
+        <label for="localidade">Localidade</label>
+        <select class="form-control form-control-lg" id="localidade">
+          <option value=36057>Vigo</option>
+          <option value=15030>A Coruña</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Example textarea</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+    </form>
 
-  <div id="root"></div>
+    <div id="predicion">
+        <!-- HTML example of how a prediction will be displayed
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Predición para Vigo para domingo 17 de febreiro</h5>
+              <p class="card-text">Mínima: 11º<br>Máxima: 16º</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Mañá</li>
+              <li class="list-group-item">Tarde</li>
+              <li class="list-group-item">Noite</li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">Ver en MeteoGalicia</a>
+            </div>
+          </div>
+        -->
+    </div>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="script.js"></script>
